@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
+    <title>Checklist Pokedex</title>
     <link rel="stylesheet" href="style.css" />
     <script src="./pokemon.js" defer></script>
     <script src="./search.js" defer></script>
@@ -14,7 +14,7 @@
         <div class="container">
           <div class="logo-wrapper">
             <img src="./assets/pokeball.svg" alt="pokeball" />
-            <h1 style="color:black">Pokedex</h1>
+            <h1 style="color:black">Checklist Pokedex</h1>
           </div>
           <div class="search-wrapper">
             <div class="search-wrap">
@@ -51,20 +51,27 @@
                   <div>
                     <input
                       type="radio"
-                      id="number"
+                      id="name"
                       name="filters"
-                      value="number"
+                      value="name"
                       checked
                     />
+                    <label for="name" class="body3-fonts">Name</label>
+                  </div>
+                  <div>
+                    <input type="radio" id="number" name="filters" value="number" />
                     <label for="number" class="body3-fonts">Number</label>
                   </div>
                   <div>
-                    <input type="radio" id="name" name="filters" value="name" />
-                    <label for="name" class="body3-fonts">Name</label>
+                    <input type="radio" id="caught" name="filters" value="caught" />
+                    <label for="caught" class="body3-fonts">Caught</label>
                   </div>
                 </div>
               </div>
             </div>
+            <div class="reset-wrapper">
+              <button class="reset-button body3-fonts" id="reset-button">Reset</button>
+           </div>
           </div>
         </div>
       </header>

@@ -1,4 +1,5 @@
 let currentPokemonId = null;
+let isShinyEnabled = false;
 
 document.addEventListener('DOMContentLoaded', () => {
   const MAX_POKEMONS = 386;
@@ -13,10 +14,19 @@ document.addEventListener('DOMContentLoaded', () => {
   currentPokemonId = id;
   loadPokemon(id);
 
+  const toggleShinyButton = document.getElementById('toggleShinyButton');
+  toggleShinyButton.addEventListener('click', toggleShinyForm);
+
 });
 
-async function loadPokemon(id) {
+async function loadPokemon(id, preserveShinyStatus = false) {
   try {
+
+    // Preserve shiny status if indicated
+    if (!preserveShinyStatus) {
+      isShinyEnabled = false;
+    }
+
     const [pokemon, pokemonSpecies] = await Promise.all([
       fetch(`https://pokeapi.co/api/v2/pokemon/${id}`).then((res) =>
         res.json()
@@ -197,8 +207,12 @@ function displayPokemonDetails(pokemon) {
     '.pokemon-id-wrap .body2-fonts'
   ).textContent = `#${String(id).padStart(3, '0')}`;
 
+
+  const shiny = `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/shiny/${id}.png`;
+  const notShiny = `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/${id}.png`;
+
   const imageElement = document.querySelector('.detail-img-wrapper img');
-  imageElement.src = `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/${id}.png`;
+  imageElement.src = isShinyEnabled ? shiny : notShiny;
   imageElement.alt = name;
 
   const typeWrapper = document.querySelector('.power-wrapper');
@@ -260,7 +274,7 @@ function displayPokemonDetails(pokemon) {
     createAndAppendElement(statDiv, 'progress', {
       className: 'progress-bar',
       value: base_stat,
-      max: 100,
+      max: 200,
     });
   });
 
@@ -269,11 +283,13 @@ function displayPokemonDetails(pokemon) {
 
 
 function getEnglishFlavorText(pokemonSpecies) {
-  for (let entry of pokemonSpecies.flavor_text_entries) {
-    if (entry.language.name === 'en' && entry.version.name === 'firered') {
-      let flavor = entry.flavor_text.replace(/\f/g, ' ');
-      return flavor;
-    }
-  }
-  return '';
+  const entry = pokemonSpecies.flavor_text_entries.find(entry => entry.language.name === 'en' && entry.version.name === 'firered');
+  return entry ? entry.flavor_text.trim() : '';
+}
+
+async function toggleShinyForm() {
+  isShinyEnabled = !isShinyEnabled; // Toggle the shiny status
+  
+  // Reload the Pokémon details with the new shiny status
+  loadPokemon(currentPokemonId, true);
 }

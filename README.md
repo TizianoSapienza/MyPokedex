@@ -1,4 +1,4 @@
-This is a Checklist Pokedex using HTML, CSS and Vanilla JS. 
+This is a Checklist Pokedex done by using HTML, CSS and Vanilla JS. 
 I took inspiration from a similar Pokedex project and managed to rebuild it, and then refactor using an OOP approach where I though it would fit better.
 Yes, it is very unoptimized and ugly, I know XD.
 

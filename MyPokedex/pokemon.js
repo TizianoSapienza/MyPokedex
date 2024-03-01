@@ -108,6 +108,7 @@ class Pokedex {
 
   addEventListeners() {
     this.searchInput.addEventListener('keyup', () => this.handleSearch());
+    
     const closeButton = document.querySelector('.search-close-icon');
     closeButton.addEventListener('click', () => this.clearSearch());
 

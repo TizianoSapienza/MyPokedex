@@ -321,7 +321,7 @@ body {
 /* detail page */
 
 .detail-main .header {
-  padding: 10px 10px 14px 10px;
+  padding: 20px 20px 24px 20px;
   position: relative;
   z-index: 2;
 }
@@ -557,7 +557,6 @@ div#not-found-message {
 }
 
 .detail-main.main {
-  height: max-content;
   border-color: transparent;
   background-color: transparent;
 }

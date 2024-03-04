@@ -1,5 +1,5 @@
 This is a Checklist Pokedex done by using HTML, CSS and Vanilla JS. 
-I took inspiration from a similar Pokedex project and managed to rebuild it, and then refactor using an OOP approach where I though it would fit better.
+I took inspiration from a similar Pokedex concept and design I found on Figma and rebuilt it.
 Yes, it is very unoptimized and ugly, I know XD.
 
 I also used it to gain confidence and ability on the usage of HTML and especially in CSS styling by creating and experimenting with it.

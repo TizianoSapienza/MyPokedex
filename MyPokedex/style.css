@@ -318,6 +318,12 @@ body {
   height: 100%;
 }
 
+@media screen and (max-width: 500px) {
+  .search-wrap {
+    width: 60%;
+  }
+}
+
 /* detail page */
 
 .detail-main .header {
@@ -472,7 +478,6 @@ body {
 .detail-card-detail-wrapper .pokemon-description {
   color: var(--grayscale-dark);
   text-align: center;
-  width: 550px;
 }
 
 .stats-wrap {
@@ -593,7 +598,7 @@ div#not-found-message {
 }
 
 .list-item .pokemon-checkbox:checked {
-  background: url('./assets/check-mark-icon.svg') center/contain no-repeat;
+  background: url('./assets/icons8-pokeball-48.png') center/contain no-repeat;
 }
 
 /* Style for the inner checkbox appearance */
@@ -655,8 +660,58 @@ div#not-found-message {
   padding: 2px 10px;
 }
 
-@media screen and (max-width: 500px) {
+
+@media screen and (max-width: 300px) {
+  .header.home {
+    width: 100%; /* Adjust the header width for smaller screens */
+  }
   .search-wrap {
-    width: 60%;
+    width: 80%; /* Adjust the search wrapper width */
+  }
+
+  .list-item {
+    width: 100%; /* Make list items take full width on smaller screens */
+    margin-bottom: 1rem; /* Add some spacing between list items */
+  }
+
+  .detail-main .header-wrapper {
+    justify-content: center; /* Center header content for smaller screens */
+  }
+
+  .detail-main.main {
+    border-color: transparent;
+    background-color: transparent;
+  }
+
+  .detail-card-detail-wrapper {
+    width: 80%; /* Adjust the width of the detail card wrapper */
+    margin-top: -30px; /* Adjust the margin-top for the detail card */
+  }
+
+  .detail-img-wrapper,
+  .featured-img img {
+    width: 100%; /* Make images take full width on smaller screens */
+  }
+
+  .pokemon-detail-wrapper {
+    flex-direction: column; /* Stack Pokemon details vertically on smaller screens */
+    align-items: center; /* Center Pokemon details on smaller screens */
+  }
+
+  .pokemon-detail-wrap:before {
+    display: none; /* Hide the vertical line between Pokemon details on smaller screens */
+  }
+
+  .stats-wrap {
+    flex-direction: column; /* Stack stats vertically on smaller screens */
+    align-items: center; /* Center stats on smaller screens */
+  }
+
+  .stats-wrap .progress-bar {
+    width: 60%; /* Adjust the progress bar width */
+  }
+
+  .featured-img a.arrow {
+    display: none; /* Hide arrow buttons on smaller screens */
   }
 }
